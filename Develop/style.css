@@ -1,7 +1,17 @@
+h1,
+h2,
+h4,
+p {
+  font-family: "Shadows Into Light"; 
+  line-height: 2;
+}
+
+
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
-  line-height: 1;
+  line-height: 2;
 }
 
 textarea{
@@ -18,7 +28,8 @@ textarea{
   background-color: transparent;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
 }
 
 .description{
@@ -68,4 +79,15 @@ textarea{
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+#currentDay {
+  background-color: #d3dae4;
+  width: 300px;
+  margin: auto;
+  border: 5px solid black;
+}
+
+.container {
+  background-color: #d6d6e9;
 }
