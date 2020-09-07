@@ -1,16 +1,11 @@
 var tasks = {};
 
 var createCurrentDate = function () {
-    var taskLi = $("<li>").addClass("list-group-item");
-    console.log(taskLi);
-    
-    // create curren date
+    // create current date
     var day = moment();
     console.log(day);
     // append to top of page
     $("#currentDay").append(day.format("dddd, MMMM Do YYYY"));
-
-    auditTask(taskLi);
 }
 
 var saveTasks = function () {
@@ -21,11 +16,44 @@ var loadTasks = function () {
     tasks = JSON.parse(localStorage.getItem("tasks"));
 };
 
+$(".saveBtn").on("click", function () {
+    // figure out which save button was clicked
 
+    var text = $("textarea").text().trim();
+    console.log(text);
+
+    saveTasks();
+});
 
 var auditTask = function(taskEl) {
+    var time = moment().format("hA");
+    console.log(time);
+
+    // past
+    if (time.isAfter(".time-block")) {
+        $("textarea").addClass("past");
+    }
+    // present
+    if (time) {
+        $("textarea").addClass("present");
+    }
+    // future
+    else {
+        $("textarea").addClass("future");
+    }
+}
+
+var present = moment();
+var future = moment().add(1, "hour");
+var past = moment().subtract(1, "hour");
+
+if (present) {
+    $("textarea").addClass("present");
+}
+
+/*var auditTask = function(taskEl) {
     // get date from task element
-    var date = $(taskEl).find("h4").text().trim();
+    var date = $(taskEl).find("p").text().trim();
     console.log(date);
     // convert to moment object at 5:00pm
     var time = moment(date, "L").set("hour", 17);
@@ -40,10 +68,10 @@ var auditTask = function(taskEl) {
     else if (Math.abs(moment().diff(time, "hours")) <= 2) {
       $(taskEl).addClass("list-group-item-warning");
     }
-  };
+  };*/
 
 // the paragraph of a given task will know that it's being clicked
-$(".list-group").on("click", "p", function () {
+/*$(".list-group").on("click", "p", function () {
     // get the textarea's current value/text
     var text = $(this).text().trim();
     console.log("I'm being clicked");
@@ -88,11 +116,14 @@ $(".list-group").on("blur", "textarea", function () {
   
     // replace textarea with p element
     $(this).replaceWith(taskP);
-});
+}); */
 
 createCurrentDate();
 
 //check times to adjust color segments
 setInterval(function() {
-    
-}, (1000*60));
+    var tasks = $(".time-block").each();
+    //var time = tasks.moment().format("hA");
+    //auditTask(time);
+    console.log(tasks);
+}, (1000));

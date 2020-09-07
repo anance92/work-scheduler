@@ -6,7 +6,10 @@ p {
   line-height: 2;
 }
 
-
+.display-3 {
+  border-radius: 25px;
+  border: 5px solid black;
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -72,7 +75,7 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
+  background-color: #ccd7da;
   color: white;
 }
 
@@ -82,12 +85,17 @@ textarea{
 }
 
 #currentDay {
-  background-color: #dddae0;
+  background-color: #f5f3f7;
   width: 300px;
   margin: auto;
-  border: 5px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
 }
 
 .container {
-  background-color: #a297ad;
+  background-color: #6d5881a4;
+}
+
+.oi-calendar {
+  margin: auto;
 }
