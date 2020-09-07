@@ -59,4 +59,4 @@ setInterval(function() {
     //var time = tasks.moment().format("hA");
     //auditTask(time);
     console.log(tasks);
-}, (1000));
+}, (1000*60));
